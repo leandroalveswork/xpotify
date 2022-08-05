@@ -1,0 +1,47 @@
+<h1 id="tableLabel">Áudio</h1>
+
+<p>Filtrar por Nome:</p>
+
+<div class="d-flex mb-3">
+  <input type="text" [(ngModel)]="filtroDeArquivoNome" class="me-3" />
+  
+  <button type="button" (click)="filtrar()" class="py-2 px-3 bg-primary text-white border-0 tamanho-min-1_0x-non-important" >Pesquisar</button>
+
+</div>
+
+<p *ngIf="!audiosMostrados"><em>Carregando...</em></p>
+
+
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="audiosMostrados">
+  <thead>
+    <tr>
+      <th>Nome do Arquivo</th>
+      <th>Tipo</th>
+      <th>Nome do Operador</th>
+      <th>Data de Criação</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let audio of audiosMostrados">
+      <td>{{ audio.arquivoNome }}</td>
+      <td>{{ audio.tipo }}</td>
+      <td>{{ audio.operadorNome }}</td>
+      <td>{{ audio.dataCriacao }}</td>
+      <td>
+        
+        <div class="d-flex">
+          <button type="button" (click)="audio.navegarParaAlterar()" class="py-2 px-3 bg-primary text-white border-0 me-3 tamanho-min-1_0x-non-important" >Alterar</button>
+
+          <button type="button" (click)="audio.excluir()" class="py-2 px-3 bg-danger text-white border-0 tamanho-min-1_0x-non-important" >Excluir</button>
+
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-end">
+  <button type="button" (click)="navegarParaIncluir()" class="py-2 px-3 bg-primary text-white border-0 tamanho-min-1_0x-non-important" >Novo</button>
+</div>

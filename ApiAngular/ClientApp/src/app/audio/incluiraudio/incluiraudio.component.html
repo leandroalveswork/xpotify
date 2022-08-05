@@ -1,0 +1,29 @@
+<h1 id="tableLabel">Áudio</h1>
+
+<p>Novo</p>
+
+<div class="d-flex mb-3 row g-0">
+  <div class="col-6 d-flex flex-column pe-3">
+    <label>Nome do Arquivo</label>
+    <input type="text" [(ngModel)]="arquivoNome" />
+
+  </div>
+  <div class="col-6 d-flex flex-column">
+    <label>Tipo</label>
+    <select [(ngModel)]="tipoEEntrada">
+      <option value="">Selecione...</option>
+      <option value="S">Entrada</option>
+      <option value="N">Saída</option>
+    </select>
+  </div>
+  <div class="col-6 d-flex flex-column pe-3 mb-3">
+    <label>Nome do Operador</label>
+    <input type="text" [(ngModel)]="operadorNome" />
+
+  </div>
+  
+  <p *ngIf="mensagemErro" class="text-danger">{{mensagemErro}}</p>
+  <button type="button" (click)="salvar()" class="py-2 px-3 bg-primary text-white border-0 tamanho-min-1_0x-non-important" >Salvar</button>
+
+</div>
+
